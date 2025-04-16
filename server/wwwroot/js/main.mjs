@@ -19736,10 +19736,10 @@ Object.keys(Er).filter(Gi).forEach((n) => {
 Object.keys(Ur).filter(Gi).forEach((n) => {
   q.lang[n] = Ur[n];
 });
-function Tu(n) {
-  const e = q.make("#editor1");
-  console.log(e), console.log(n);
+function Tu(n, e) {
+  const t = q.make(n);
+  t.value = e;
 }
 document.addEventListener("DOMContentLoaded", () => {
-  Tu("#editor1");
+  Tu("#editor1", "<html><body>Hei</body></html>");
 });
