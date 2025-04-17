@@ -1,12 +1,20 @@
 ﻿import './jodit.css.js';
-import { initEditor } from './defaultEditor.js';
+import { createJoditEditor } from './defaultEditor.js';
 
-const ConstructEditor = (selector: string, htmlValue: string) => {
-  initEditor(selector, htmlValue);
-};
+type HTMLString = string;
 
-export default {
-  ConstructEditor
-};
+interface IEditor {
+	createEditorInSelector(selector: string, htmlValue: string): void;
+}
 
-(window as any).EMLEditor = { ConstructEditor };
+declare global {
+	interface Window {
+		emlEditor: IEditor;
+	}
+}
+
+window.emlEditor = { 
+  createEditorInSelector:(selector: string, htmlValue: HTMLString) : void => {
+    createJoditEditor(selector, htmlValue);
+	},
+}
