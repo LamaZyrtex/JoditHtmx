@@ -1,17 +1,23 @@
 ﻿// vite.config.js
-import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'main',
-      // the proper extensions will be added
-      fileName: 'main',
+      name: 'EMLEditor',
+      formats: ['umd'],
+      fileName: (format) => `main.${format}.js`
     },
-    rollupOptions: {
+    minify: 'terser',
+    terserOptions: {
+      keep_fnames: true,
+      format: {
+        comments: false
+      },
     },
-    outDir: '../server/wwwroot/js'
-  },
+    outDir: '../server/wwwroot/js',
+    emptyOutDir: true
+  }
 })

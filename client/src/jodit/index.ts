@@ -1,9 +1,12 @@
 ﻿import './jodit.css.js';
-import { initEditor1 } from './defaultEditor.js';
+import { initEditor } from './defaultEditor.js';
 
+const ConstructEditor = (selector: string, htmlValue: string) => {
+  initEditor(selector, htmlValue);
+};
 
-document.addEventListener('DOMContentLoaded', () => {
-  const selector = '#editor1';
-  const htmlValue =  "<html><body>Hei</body></html>";
-  initEditor1(selector, htmlValue);
-});
+export default {
+  ConstructEditor
+};
+
+(window as any).EMLEditor = { ConstructEditor };
