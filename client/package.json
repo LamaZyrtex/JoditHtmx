@@ -15,7 +15,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "jodit": "^4.6.2"
+    "jodit-pro": "^4.6.4"
   },
   "devDependencies": {
     "terser": "^5.39.0",
