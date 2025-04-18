@@ -11,7 +11,7 @@ export function createJoditEditor(selector: string, value?: string): Jodit {
     const jodit = Jodit.make(selector, {
         language : 'no',
         height: 500,
-        buttons: ['bold', 'italic', 'ul', 'ol', 'table', 'image', '|', 'source'],
+        buttons: ['bold', 'italic', 'ul', 'ol', 'table', 'image'],
         toolbarSticky: false,
         iframe: false,
         askBeforePasteHTML: false,
@@ -21,7 +21,6 @@ export function createJoditEditor(selector: string, value?: string): Jodit {
         jodit.value = value ?? '<p>Skriv her ..<p>';
 
         return jodit;
-
 }
 
 
