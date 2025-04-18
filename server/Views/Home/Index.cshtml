@@ -1,10 +1,12 @@
 ﻿@{
   ViewData["Title"] = "Hovedside";
 }
+
 <div id="editor1"></div>
 
 <script>
+  let editor = undefined;
   window.addEventListener('DOMContentLoaded', () => {
-    emlEditor.createEditorInSelector("#editor1", "<div><h1>Ja</h1></div>");
+    editor = emlEditor.createEditorInSelector("#editor1");
   });
 </script>
