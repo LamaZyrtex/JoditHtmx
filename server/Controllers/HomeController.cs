@@ -7,7 +7,7 @@ namespace JoditHtmx.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
+    private static int _editorCount = 1;
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
@@ -18,12 +18,12 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult GetEditorPartial()
+    public IActionResult AddEditor()
     {
-        // Eventuelt kan du sende med data, for eksempel et unikt id.
-        return PartialView("_EditorPartial");
+        _editorCount++;
+        return PartialView("_editorContainer", _editorCount);
     }
-
+    
     public IActionResult Privacy()
     {
         return View();

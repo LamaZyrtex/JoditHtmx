@@ -2,12 +2,24 @@
   ViewData["Title"] = "Hovedside";
 }
 
-<div id="editor1"></div>
 
+<div id="editors">
+    <div id="editor1" class="editor-instance"></div>
+    <br />
+</div>
+
+<!-- 2) Htmx: Adding a new editor from the server -->
+<button 
+    hx-get="@Url.Action("AddEditor", "Home")" 
+    hx-target="#editors" 
+    hx-swap="beforeend"
+    class="btn btn-primary">
+    Add a new editor
+</button>
+
+<!-- 3) initialize the first editor -->
 <script>
-  let editor = undefined;
   window.addEventListener('DOMContentLoaded', () => {
-    editor = emlEditor.createEditorInSelector("#editor1");
+    emlEditor.createEditorInSelector("#editor1");
   });
-
 </script>

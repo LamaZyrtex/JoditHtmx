@@ -1,0 +1,9 @@
+﻿@model int
+@{
+    var selector = "editor" + @Model;
+}
+<div id="@selector" class="editor-instance" style="margin-top:1em;"></div>
+<br />
+<script>
+  emlEditor.createEditorInSelector("#@selector");
+</script>

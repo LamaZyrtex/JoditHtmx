@@ -6,8 +6,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'EMLEditor',
-      formats: ['umd'],
+      name: 'name..',
+      formats: ['iife'],
       fileName: (format) => `main.${format}.js`
     },
     minify: 'terser',

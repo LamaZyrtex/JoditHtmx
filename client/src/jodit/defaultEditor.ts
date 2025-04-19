@@ -9,12 +9,12 @@ export function createJoditEditor(selector: string, value?: string): Jodit {
     Jodit.lang.no = no;
 
     // Lag editor
-    const jodit = Jodit.make(selector, {
+    const editorInstance = Jodit.make(selector, {
         language: 'no',
-        height: 500,
+        height: 200,
         toolbarSticky: false,
         askBeforePasteHTML: false,
-        beautifyHTML: false,
+        beautifyHTML: true,
         defaultActionOnPaste: INSERT_AS_HTML,
         processPasteFromWord: true,
         askBeforePasteFromWord: false,
@@ -33,10 +33,16 @@ export function createJoditEditor(selector: string, value?: string): Jodit {
             'table',
             'align', 'undo', 'redo', '|',
             'fullsize',
+            'eraser'
         ],
-    } );
+        cleanHTML: {
+            denyTags:   ['style','script','meta','link'],
+            removeEmptyTags:       true,
+            removeEmptyAttributes: true
+          },
+    } as any);
 
-    jodit.value = value ?? '<p>Skriv her ..<p>';
+    editorInstance.value = value ?? '<p>Write something ..<p>';
 
-    return jodit;
+    return editorInstance;
 }
