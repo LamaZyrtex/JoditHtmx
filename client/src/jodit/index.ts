@@ -14,9 +14,9 @@ declare global {
 	}
 }
 
-window.emlEditor = { 
-  createEditorInSelector:(selector: string, htmlValue: HTMLString) : Jodit => {
-    return createJoditEditor(selector, htmlValue);
+window.emlEditor = {
+	createEditorInSelector: (selector: string, htmlValue: HTMLString): Jodit => {
+		return createJoditEditor(selector, htmlValue);
 	},
 }
 

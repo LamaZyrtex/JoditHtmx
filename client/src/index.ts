@@ -1,1 +1,1 @@
-﻿import './jodit/index'
+﻿import './jodit/index';
