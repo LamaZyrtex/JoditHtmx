@@ -1,7 +1,7 @@
-﻿import { Jodit } from 'jodit';
+﻿import { Jodit } from 'jodit/esm';
+import { INSERT_AS_HTML,} from 'jodit/esm/core/constants';
 import no from 'jodit/esm/langs/no.js';
 import 'jodit/esm/plugins/all.js';
-
 
 export function createJoditEditor(selector: string, value?: string): Jodit {
 
@@ -12,43 +12,31 @@ export function createJoditEditor(selector: string, value?: string): Jodit {
     const jodit = Jodit.make(selector, {
         language: 'no',
         height: 500,
-        // buttons: [
-        //     'source', '|',
-        //     'bold',
-        //     'strikethrough',
-        //     'underline',
-        //     'italic', '|',
-        //     'ul',
-        //     'ol', '|',
-        //     'outdent', 'indent', '|',
-        //     'font',
-        //     'fontsize',
-        //     'brush',
-        //     'paragraph', '|',
-        //     'image',
-        //     'video',
-        //     'table',
-        //     'link', '|',
-        //     'align', 'undo', 'redo', '|',
-        //     'hr',
-        //     'eraser',
-        //     'copyformat', '|',
-        //     'symbol',
-        //     'fullsize',
-        //     'print',
-        //     'about'
-        // ],
         toolbarSticky: false,
-        iframe: false,
         askBeforePasteHTML: false,
+        beautifyHTML: false,
+        defaultActionOnPaste: INSERT_AS_HTML,
+        processPasteFromWord: true,
         askBeforePasteFromWord: false,
-    });
+        defaultActionOnPasteFromWord: 'insert_clear_html',
+        buttons: [
+            'source', '|',
+            'bold',
+            'strikethrough',
+            'underline',
+            'italic', '|',
+            'ul',
+            'ol', '|',
+            'font',
+            'fontsize',
+            'paragraph', '|',
+            'table',
+            'align', 'undo', 'redo', '|',
+            'fullsize',
+        ],
+    } );
 
     jodit.value = value ?? '<p>Skriv her ..<p>';
 
     return jodit;
 }
-
-
-
-

@@ -1,6 +1,6 @@
 ﻿import './jodit.css.js';
 import { createJoditEditor } from './defaultEditor.js';
-import { Jodit } from 'jodit';
+import { Jodit} from 'jodit/esm/';
 
 type HTMLString = string;
 
